@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Личный трекер английских фраз для путешествий">
+  <title>English for Travel — ваш языковой маршрут</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23266759'/%3E%3Ctext x='12' y='46' font-size='42'%3E✈%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><div class="brand"><span class="brand-icon">✈</span> English for Travel</div><span class="personal-label">Ваш личный языковой маршрут</span></header>
+  <main>
+    <section class="intro">
+      <div><span class="eyebrow">МАЛЕНЬКИЕ ШАГИ · БОЛЬШИЕ ПУТЕШЕСТВИЯ</span><h1>English for Travel<span class="title-dot">.</span></h1><p class="subtitle">Английский для уверенных путешествий</p><p class="intro-note">От первого «Hello» до новых впечатлений.<br>Выберите тему и начните с пяти простых фраз.</p></div>
+      <div class="overall-card"><div class="progress-heading"><span>Ваш общий прогресс</span><span aria-hidden="true">↗</span></div><div class="overall-number"><strong id="overall-percent">0%</strong><span>на пути к уверенности</span></div><progress id="overall-progress" max="60" value="0" aria-label="Общий прогресс"></progress><p id="overall-count" aria-live="polite">0 из 60 фраз изучено</p></div>
+      <!-- Декоративный рисунок встроен в HTML и работает без интернета. -->
+      <svg class="travel-illustration" viewBox="0 0 1200 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <g id="palm">
+            <path d="M0 130 Q18 80 5 28" fill="none" stroke="#a87543" stroke-width="11" stroke-linecap="round"/>
+            <path d="M5 30 Q-42 -1 -65 42 Q-24 24 5 30 M5 30 Q-30 -21 -54 6 Q-17 10 5 30 M5 30 Q16 -18 47 1 Q24 8 5 30 M5 30 Q53 1 69 43 Q34 25 5 30 M5 30 Q46 28 42 66 Q24 40 5 30 M5 30 Q-24 25 -32 62 Q-10 43 5 30" fill="#2c9773"/>
+            <circle cx="3" cy="32" r="7" fill="#8a663e"/><circle cx="14" cy="34" r="6" fill="#a97a42"/>
+          </g>
+          <g id="airplane" fill="#fff" stroke="#3b8d98" stroke-width="2" stroke-linejoin="round">
+            <path d="M-52 4 L-13 -3 L4 -38 L15 -38 L10 -3 L44 0 Q61 5 44 10 L10 13 L15 37 L5 37 L-13 13 L-43 16 L-53 30 L-61 30 L-58 10 L-68 -7 L-58 -7 Z"/>
+          </g>
+        </defs>
+        <circle cx="950" cy="26" r="38" fill="#ffdc7a"/>
+        <g fill="#fff" opacity=".65"><ellipse cx="255" cy="30" rx="58" ry="10"/><ellipse cx="280" cy="20" rx="25" ry="17"/><ellipse cx="815" cy="51" rx="46" ry="8"/></g>
+        <path d="M0 112 Q180 85 360 112 T720 112 T1080 112 T1440 112 V150 H0Z" fill="#78cdc9"/>
+        <path d="M0 135 Q240 108 435 138 T850 132 T1200 137 V150 H0Z" fill="#fce5ac"/>
+        <path d="M250 100 Q400 15 577 59 T886 47" fill="none" stroke="#519f9f" stroke-width="2" stroke-dasharray="6 9" opacity=".7"/>
+        <use href="#palm" transform="translate(110 5) rotate(-9 0 130)"/>
+        <use href="#palm" transform="translate(180 42) scale(.7) rotate(12 0 130)"/>
+        <use href="#palm" transform="translate(1080 4) rotate(10 0 130)"/>
+        <use href="#airplane" transform="translate(520 44) rotate(-12) scale(.8)"/>
+        <use href="#airplane" transform="translate(890 44) rotate(-19) scale(.48)"/>
+      </svg>
+    </section>
+    <section aria-labelledby="topics-heading">
+      <div class="section-heading"><div><h2 id="topics-heading">Куда отправимся?</h2><p>12 тем для ситуаций, которые встретятся в поездке</p></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Найти тему…" aria-label="Поиск по названию темы"></label></div>
+      <div class="toolbar"><div class="filters" role="group" aria-label="Фильтр по прогрессу"><button class="filter active" data-filter="all" aria-pressed="true">Все <span>12</span></button><button class="filter" data-filter="new" aria-pressed="false">Не начато</button><button class="filter" data-filter="started" aria-pressed="false">В процессе</button><button class="filter" data-filter="done" aria-pressed="false">Завершено</button></div><button id="reset" class="reset-button">↺ Сбросить прогресс</button></div>
+      <div id="topics" class="topic-grid"></div>
+      <div id="empty" class="empty" hidden><h3>Тем пока не найдено</h3><p>Попробуйте другое название или выберите «Все».</p><button id="show-all" class="primary">Все темы</button></div>
+    </section>
+    <footer><span>Пять фраз сегодня — больше уверенности завтра.</span><span>Сделано для ваших будущих путешествий <span aria-hidden="true">↗</span></span></footer>
+  </main>
+  <dialog id="lesson" aria-labelledby="lesson-title"><div class="lesson-header"><button id="back" class="back-button">← Все темы</button><span id="lesson-mode" class="eyebrow"></span></div><h2 id="lesson-title"></h2><p id="lesson-description"></p><progress id="lesson-progress" max="5" value="0" aria-label="Прогресс темы"></progress><div id="phrases"></div><p class="pronunciation-note">Нажмите ▶, чтобы услышать фразу. Записи озвучены синтезированным голосом с американским произношением и доступны без интернета. Произношение русскими буквами приблизительное.</p></dialog>
+  <div id="notice" class="notice" role="status" hidden></div>
+</body>
+</html>
